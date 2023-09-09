@@ -1,0 +1,63 @@
+{
+  "app": {
+    "js": [
+      "js/runtime.js",
+      "js/259.js",
+      "js/app.js"
+    ],
+    "css": [
+      "css/app.css"
+    ],
+    "dependencies": []
+  },
+  "editor": {
+    "js": [
+      "js/runtime.js",
+      "js/259.js",
+      "js/editor.js"
+    ],
+    "css": [
+      "css/editor.css"
+    ],
+    "dependencies": [
+      "wp-blocks"
+    ]
+  },
+  "leadspace-b": {
+    "js": [
+      "js/runtime.js",
+      "js/472.js",
+      "js/10.js",
+      "js/leadspace-b.js"
+    ],
+    "css": [
+      "css/472.css",
+      "css/leadspace-b.css"
+    ],
+    "dependencies": []
+  },
+  "leadspace": {
+    "js": [
+      "js/runtime.js",
+      "js/472.js",
+      "js/152.js",
+      "js/leadspace.js"
+    ],
+    "css": [
+      "css/472.css"
+    ],
+    "dependencies": []
+  },
+  "stylesheet": {
+    "js": [
+      "js/runtime.js",
+      "js/10.js",
+      "js/152.js",
+      "js/stylesheet.js"
+    ],
+    "css": [
+      "css/stylesheet.css"
+    ],
+    "dependencies": []
+  }
+}

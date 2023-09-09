@@ -1,0 +1,22 @@
+{
+  "app.css": "css/app.css",
+  "app.js": "js/app.js",
+  "editor.css": "css/editor.css",
+  "editor.js": "js/editor.js",
+  "leadspace-b.css": "css/leadspace-b.css",
+  "leadspace-b.js": "js/leadspace-b.js",
+  "leadspace.js": "js/leadspace.js",
+  "stylesheet.css": "css/stylesheet.css",
+  "stylesheet.js": "js/stylesheet.js",
+  "runtime.js": "js/runtime.js",
+  "js/259.js": "js/259.js",
+  "css/472.css": "css/472.css",
+  "js/472.js": "js/472.js",
+  "js/10.js": "js/10.js",
+  "js/152.js": "js/152.js",
+  "images/preview/leadspace.png": "images/preview/leadspace.5c6585.png",
+  "fonts/FTBase-Book.woff2": "fonts/FTBase-Book.woff2",
+  "fonts/FTBase-Regular.woff2": "fonts/FTBase-Regular.woff2",
+  "images/preview/leadspace.webp": "images/preview/leadspace.c80272.webp",
+  "fonts/icons.woff?6v390e": "fonts/icons.woff"
+}
