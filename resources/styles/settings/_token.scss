@@ -1,0 +1,479 @@
+$base-rem-multiplier: 16px;
+
+/* Colors */
+$t-colors: (
+  'black': #000,
+  'white': #fff,
+  'red': red,
+  'blue': blue,
+);
+
+/* Typo sizes */
+$t-typography-size: (
+  'h1-lg': 100px,
+  'h1': 40px,
+) !default;
+
+/* Typo leadings */
+$t-typography-leading: (
+  'none': 1,
+  'tight': 1.35,
+  'normal': 1.5,
+  'loose': 1.7,
+) !default;
+
+/* Typo trackings */
+$t-typography-tracking: (
+  'tight': -0.01em,
+  'normal': 0,
+  'wide': 0.01em,
+  'extra-wide': 0.075em,
+) !default;
+
+/* Typo weight */
+$t-typography-weight: (
+  'light': 300,
+  'normal': 400,
+  'medium': 600,
+  'bold': 700,
+) !default;
+
+/* Font face */
+$t-fonts: (
+  '1': (
+    // style-name: value
+    'font-family': 'FT base',
+    'src': url('../../fonts/FTBase-Book.woff2') format('woff2'),
+    'font-weight': 300,
+  ),
+  '2': (
+    // style-name: value
+    'font-family': 'FT base',
+    'src': url('../../fonts/FTBase-Regular.woff2') format('woff2'),
+    'font-weight': 400,
+  ),
+);
+
+/* Default fonts */
+$t-typography--sans: 'FT base, Helvetica Neue, Helvetica, Arial, sans-serif' !default;
+$t-typography--serif: 'serif' !default;
+$t-typography--default-font: #{$t-typography--sans};
+
+/* Opacity */
+$t-opacity: (
+  '0': 0,
+  '10': 0.1,
+  '20': 0.2,
+  '100': 1,
+);
+
+/* Spacing multiplier */
+$multiplier: 0.4rem;
+
+/* Spacings */
+$t-spacing: (
+  '0': 0,
+  '1': $multiplier * 1,
+  '2': $multiplier * 2,
+  '3': $multiplier * 3,
+  '4': $multiplier * 4,
+  '5': $multiplier * 5,
+);
+
+/* Ratios */
+$t-ratio: (
+  '1x1': 1 / 1,
+  '3x4': 3 / 4,
+  '16x9': 16 / 9,
+);
+
+/* Breakpoints */
+$t-breakpoints: (
+  'xs': 0,
+  'sm': 481px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  'xxl': 1440px,
+);
+
+/* Grid */
+$t-layout: (
+  'container': (
+    'max-width': (
+      // 'xs': 400px,
+      'lg': 1440px,
+    ),
+    'margin': (
+      'xs': 20px,
+      'lg': 64px,
+    ),
+  ),
+  'grid': (
+    'columns': 12,
+    'gutter': (
+      'xs': 20px,
+      'lg': 32px,
+    ),
+  ),
+);
+
+// UTILITY BUILDER
+
+/* Typo styles */
+$t-typography: (
+  'xs': (
+    'h1': (
+      'font-size':
+        map-get(
+          $map: $t-typography-size,
+          $key: h1,
+        ),
+      'line-height': 40px,
+    ),
+  ),
+  'lg': (
+    'h1': (
+      'font-size':
+        map-get(
+          $map: $t-typography-size,
+          $key: h1-lg,
+        ),
+      'line-height': 90px,
+    ),
+  ),
+);
+
+/* Utility classes */
+$t-utility: (
+  /* 
+    -------------------
+    ROOT UTILITIES:-
+    -------------------
+  */ /* Breakpoints */ 'Breakpoints':
+    (
+      'prefix': 'br-',
+      'items': $t-breakpoints,
+      'root': true,
+    ),
+
+  /* Colors */ 'Colors':
+    (
+      'prefix': 'c-',
+      'items': $t-colors,
+      'root': true,
+    ),
+
+  /* Spacings */ 'Spacing':
+    (
+      'prefix': 'spacing-',
+      'items': $t-spacing,
+      'root': true,
+    ),
+
+  /* Ratio */ 'Ratio':
+    (
+      'prefix': 'ratio-',
+      'items': $t-ratio,
+      'root': true,
+    ),
+
+  /* 
+    -------------------
+    PROPERTY UTILITIES:-
+    Make "'root': true" if root variables are required
+    Make "'responsive': true" if breakpoints are required
+    -------------------
+  */
+    /* Bg colors */ 'Background color':
+    (
+      'prefix': 'bg-',
+      'items': $t-colors,
+      'property': 'background',
+      'root': false,
+    ),
+
+  /* Text colors */ 'Text color':
+    (
+      'prefix': 'text-',
+      'items': $t-colors,
+      'property': 'color',
+      'root': false,
+    ),
+
+  /* Text align */ 'Text align':
+    (
+      'prefix': 'text-align-',
+      'items': (
+        'start': 'start',
+        'center': 'center',
+        'end': 'end',
+      ),
+      'property': 'text-align',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Position */ 'Position':
+    (
+      'prefix': 'position-',
+      'items': (
+        'static': 'static',
+        'relative': 'relative',
+        'absolute': 'absolute',
+        'fixed': 'fixed',
+        'sticky': 'sticky',
+      ),
+      'property': 'position',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Display */ 'Display':
+    (
+      'prefix': 'd-',
+      'items': (
+        'block': 'block',
+        'inline': 'inline',
+        'inline-flex': 'inline-flex',
+        'flex': 'flex',
+      ),
+      'property': 'display',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Justify content */ 'Flex justify':
+    (
+      'prefix': 'justify-',
+      'items': (
+        'start': 'flex-start',
+        'end': 'flex-end',
+        'center': 'center',
+        'between': 'space-between',
+      ),
+      'property': 'justify-content',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Align items */ 'Flex align':
+    (
+      'prefix': 'align-',
+      'items': (
+        'start': 'flex-start',
+        'end': 'flex-end',
+        'center': 'center',
+        'between': 'space-between',
+      ),
+      'property': 'align-items',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Opacity */ 'Opacity':
+    (
+      'prefix': 'op-',
+      'items': $t-opacity,
+      'property': 'opacity',
+      'responsive': true,
+      'root': true,
+    ),
+
+  /* Aspect ratio */ 'Aspect ratio':
+    (
+      'prefix': 'ratio-',
+      'items': $t-ratio,
+      'property': 'aspect-ratio',
+    ),
+
+  /* Object fit */ 'Object fit':
+    (
+      'prefix': 'fit-',
+      'items': (
+        'cover': 'cover',
+        'contain': 'contain',
+      ),
+      'property': 'object-fit',
+    ),
+
+  /* Overflow */ 'Overflow all':
+    (
+      'prefix': 'overflow-',
+      'items': (
+        'auto': 'auto',
+        'hidden': 'hidden',
+        'scroll': 'scroll',
+      ),
+      'property': 'overflow',
+    ),
+  'Overflow x': (
+    'prefix': 'overflow-x-',
+    'items': (
+      'auto': 'auto',
+      'hidden': 'hidden',
+      'scroll': 'scroll',
+    ),
+    'property': 'overflow-x',
+  ),
+  'Overflow y': (
+    'prefix': 'overflow-y-',
+    'items': (
+      'auto': 'auto',
+      'hidden': 'hidden',
+      'scroll': 'scroll',
+    ),
+    'property': 'overflow-y',
+  ),
+
+  /* Z-index */ 'Z-index':
+    (
+      'prefix': 'z-',
+      'items': (
+        'n9999': '-9999',
+        'n999': '-999',
+        'n99': '-99',
+        'n9': '-9',
+        '0': '0',
+        '9': '9',
+        '99': '99',
+        '999': '999',
+        '9999': '9999',
+      ),
+      'property': 'z-index',
+    ),
+
+  /* Width */ 'Width':
+    (
+      'prefix': 'w-',
+      'items': (
+        '0': '0',
+        '25': '25%',
+        '50': '50%',
+        '75': '75%',
+        '100': '100%',
+        '100vw': '100vw',
+      ),
+      'property': 'width',
+    ),
+
+  /* Paddings */ 'Padding all':
+    (
+      'prefix': 'p-',
+      'items': $t-spacing,
+      'property': 'padding',
+      'responsive': true,
+    ),
+  'Padding x': (
+    'prefix': 'px-',
+    'items': $t-spacing,
+    'property': 'padding-inline',
+    'responsive': true,
+  ),
+  'Padding y': (
+    'prefix': 'py-',
+    'items': $t-spacing,
+    'property': 'padding-block',
+    'responsive': true,
+  ),
+  'Padding Top': (
+    'prefix': 'pt-',
+    'items': $t-spacing,
+    'property': 'padding-block-start',
+    'responsive': true,
+  ),
+  'Padding Bottom': (
+    'prefix': 'pb-',
+    'items': $t-spacing,
+    'property': 'padding-block-end',
+    'responsive': true,
+  ),
+  'Padding Left': (
+    'prefix': 'ps-',
+    'items': $t-spacing,
+    'property': 'padding-inline-start',
+    'responsive': true,
+  ),
+  'Padding Right': (
+    'prefix': 'pe-',
+    'items': $t-spacing,
+    'property': 'padding-inline-end',
+    'responsive': true,
+  ),
+
+  /* Margins */ 'Margin all':
+    (
+      'prefix': 'm-',
+      'items': $t-spacing,
+      'property': 'margin',
+      'responsive': true,
+    ),
+  'Margin x': (
+    'prefix': 'mx-',
+    'items': $t-spacing,
+    'property': 'margin-inline',
+    'responsive': true,
+  ),
+  'Margin y': (
+    'prefix': 'my-',
+    'items': $t-spacing,
+    'property': 'margin-block',
+    'responsive': true,
+  ),
+  'Margin Top': (
+    'prefix': 'mt-',
+    'items': $t-spacing,
+    'property': 'margin-block-start',
+    'responsive': true,
+  ),
+  'Margin Bottom': (
+    'prefix': 'mb-',
+    'items': $t-spacing,
+    'property': 'margin-block-end',
+    'responsive': true,
+  ),
+  'Margin Left': (
+    'prefix': 'ms-',
+    'items': $t-spacing,
+    'property': 'margin-inline-start',
+    'responsive': true,
+  ),
+  'Margin Right': (
+    'prefix': 'me-',
+    'items': $t-spacing,
+    'property': 'margin-inline-end',
+    'responsive': true,
+  ),
+
+  /* Gaps */ 'Gap all':
+    (
+      'prefix': 'g-',
+      'items': $t-spacing,
+      'property': 'gap',
+      'responsive': true,
+    ),
+  'Gap x': (
+    'prefix': 'gx-',
+    'items': $t-spacing,
+    'property': 'column-gap',
+    'responsive': true,
+  ),
+  'Gap y': (
+    'prefix': 'gy-',
+    'items': $t-spacing,
+    'property': 'row-gap',
+    'responsive': true,
+  )
+);
+
+// LAYOUT BUILDER
+
+/* stack classes */
+$t-stack: (
+  'Stack': (
+    'prefix': 'stack-',
+    'items': $t-spacing,
+    'property': 'margin-block-start',
+    'responsive': true,
+  ),
+);

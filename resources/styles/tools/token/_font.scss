@@ -1,0 +1,12 @@
+@mixin system-font($fonts-list) {
+  @each $name, $font in $fonts-list {
+    @font-face {
+      @each $style, $val in $font {
+        #{$style}: $val;
+      }
+
+      font-style: normal;
+      font-display: swap;
+    }
+  }
+}

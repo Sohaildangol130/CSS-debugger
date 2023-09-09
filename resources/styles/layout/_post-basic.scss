@@ -1,0 +1,103 @@
+.post-basic {
+  * {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    &:first-of-type {
+      & + * {
+        margin-top: 1.6rem;
+
+        @include media-breakpoint-up(md) {
+          margin-top: 2.4rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+          margin-top: 4rem;
+        }
+      }
+    }
+  }
+
+  p {
+    margin-top: 1.6rem;
+
+    @include media-breakpoint-up(md) {
+      margin-top: 2.4rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin-top: 4rem;
+    }
+  }
+
+  ul,
+  ol {
+    margin: 0 0 0 0.7rem;
+
+    > li {
+      margin-bottom: 0;
+      margin-top: 1.6rem;
+      padding-left: 1rem;
+
+      @include media-breakpoint-up(md) {
+        margin-top: 1.2rem;
+      }
+
+      @include media-breakpoint-up(xl) {
+        margin-top: 0.8rem;
+      }
+
+      &::marker {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-bottom: 0;
+  }
+
+  p + h1,
+  p + h2,
+  p + h3,
+  p + h4,
+  p + h5,
+  p + h6,
+  ul + h1,
+  ul + h2,
+  ul + h3,
+  ul + h4,
+  ul + h5,
+  ul + h6,
+  ol + h1,
+  ol + h2,
+  ol + h3,
+  ol + h4,
+  ol + h5,
+  ol + h6 {
+    margin-top: 4rem;
+  }
+
+  p + *,
+  ul + *,
+  ol + *,
+  .wp-block-quote + *,
+  blockquote + *,
+  .wp-block-separator + * {
+    margin-top: 2.2rem;
+  }
+}

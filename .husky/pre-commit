@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+[ -n "$CI" ] && exit 0
+cd ./wp-content/themes/sage10/ && yarn lint-staged

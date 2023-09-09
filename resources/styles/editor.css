@@ -1,0 +1,9 @@
+body {
+  background-color: red;
+}
+
+/* stylelint-disable */
+.edit-post-visual-editor__content-area > .is-desktop-preview {
+  padding-left: 24px;
+  padding-right: 24px;
+}

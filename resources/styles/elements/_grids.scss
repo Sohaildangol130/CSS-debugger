@@ -1,0 +1,78 @@
+.l-container {
+  // Destructuring layout map
+  $-container: map-get(
+    $map: $t-layout,
+    $key: 'container',
+  );
+  $-cWidth: map-get(
+    $map: $-container,
+    $key: 'max-width',
+  );
+  $-cMargin: map-get(
+    $map: $-container,
+    $key: 'margin',
+  );
+
+  // Assigning padding values for inline(X) axis.
+  @each $br, $val in $-cMargin {
+    @include breakpoint-up($br) {
+      --padding: #{$val};
+    }
+  }
+
+  // Assigning max width value
+  @each $br, $val in $-cWidth {
+    @include breakpoint-up($br) {
+      --width: #{$val};
+    }
+  }
+
+  // Container styles here
+  margin-inline: auto;
+  padding-inline: var(--padding);
+  max-width: var(--width);
+
+  &--fluid {
+    // Fluid container styles here
+    max-width: 100%;
+  }
+
+  // &-fluid {
+  //   // Assigning padding values for inline(X) axis.
+  //   @each $br, $val in $-cMargin {
+  //     @include breakpoint-up($br) {
+  //       --padding: #{$val};
+  //     }
+  //   }
+
+  //   // Fluid container styles here
+  //   max-width: 100%;
+  //   padding-inline: var(--padding);
+  // }
+}
+
+.l-grid {
+  // Destructuring layout map
+  $-grid: map-get(
+    $map: $t-layout,
+    $key: 'grid',
+  );
+  $-gColumns: map-get(
+    $map: $-grid,
+    $key: 'columns',
+  );
+  $-gGutter: map-get(
+    $map: $-grid,
+    $key: 'gutter',
+  );
+
+  @each $br, $val in $-gGutter {
+    @include breakpoint-up($br) {
+      --gutter: #{$val};
+    }
+  }
+
+  display: grid;
+  gap: var(--gutter);
+  grid-template-columns: repeat(#{$-gColumns}, 1fr);
+}

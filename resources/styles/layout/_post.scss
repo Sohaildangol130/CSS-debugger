@@ -1,0 +1,168 @@
+.post-content {
+  a {
+    text-decoration: underline;
+    transition: all 0.3s ease;
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  figure {
+    margin-bottom: 0;
+  }
+
+  > figure {
+    max-width: 100%;
+  }
+
+  .wp-block-image + *,
+  .wp-block-table + *,
+  .wp-block-embed + *,
+  .wp-block-quote + *,
+  blockquote + *,
+  p + .wp-block-image,
+  p + .wp-block-table,
+  p + .wp-block-embed,
+  p + .wp-block-quote,
+  p + blockquote,
+  p + h1,
+  p + h2,
+  p + h3,
+  p + h4,
+  p + h5,
+  p + h6,
+  ul + h1,
+  ul + h2,
+  ul + h3,
+  ul + h4,
+  ul + h5,
+  ul + h6,
+  ol + h1,
+  ol + h2,
+  ol + h3,
+  ol + h4,
+  ol + h5,
+  ol + h6,
+  .wp-block-quote + .wp-block-table,
+  .wp-block-quote + .wp-block-image,
+  .wp-block-quote + .wp-block-embed,
+  blockquote + .wp-block-embed {
+    margin-top: 2.4rem;
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 3.2rem;
+    }
+  }
+
+  p + *,
+  ul + *,
+  ol + *,
+  .wp-block-quote + *,
+  blockquote + *,
+  .wp-block-separator + * {
+    margin-top: 2.4rem;
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 3.2rem;
+    }
+  }
+
+  & + .post {
+    margin-top: 2.4rem;
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 3.2rem;
+    }
+  }
+
+  table {
+    border: 0.1rem solid $dark;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    th,
+    td {
+      border: 0.1rem solid $dark;
+      padding: 1rem;
+      vertical-align: top;
+    }
+  }
+
+  ul,
+  ol,
+  p {
+    margin-top: 2.4rem;
+    margin-bottom: 0;
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 3.2rem;
+    }
+  }
+
+  img.alignleft,
+  img.alignright,
+  hr {
+    margin: 2.4rem 0;
+
+    @include media-breakpoint-up(lg) {
+      margin: 3.2rem 0;
+    }
+  }
+
+  figure,
+  img {
+    &.aligncenter {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &.alignright {
+      @include media-breakpoint-up(md) {
+        margin-left: 2.4rem;
+        float: right;
+      }
+
+      @include media-breakpoint-up(lg) {
+        margin-left: 3.2rem;
+      }
+    }
+
+    &.alignleft {
+      @include media-breakpoint-up(md) {
+        margin-right: 2.4rem;
+        float: left;
+      }
+
+      @include media-breakpoint-up(lg) {
+        margin-right: 3.2rem;
+      }
+    }
+  }
+
+  iframe {
+    @extend .ratio;
+    @extend .ratio-16x9;
+  }
+
+  p {
+    img {
+      margin-top: 0 !important;
+    }
+  }
+
+  blockquote {
+    display: inline-block;
+  }
+
+  .pull-right {
+    @include media-breakpoint-up(md) {
+      float: right !important;
+    }
+  }
+}

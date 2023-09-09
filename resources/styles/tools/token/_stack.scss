@@ -1,0 +1,55 @@
+@mixin layout-stack($t-stack) {
+  @each $name, $stack-data in $t-stack {
+    // Destructuring map
+    $prefix: map-get(
+      $map: $stack-data,
+      $key: 'prefix',
+    );
+    $items: map-get(
+      $map: $stack-data,
+      $key: 'items',
+    );
+    $property: map-get(
+      $map: $stack-data,
+      $key: 'property',
+    );
+    $responsive: map-get(
+      $map: $stack-data,
+      $key: 'responsive',
+    );
+
+    @if $property {
+      @each $item-name, $item-value in $items {
+        $class-name: #{$layout-prefix}#{$prefix}#{$item-name};
+
+        // @error $class-name;
+        .#{$class-name} {
+          & > * {
+            margin-bottom: 0;
+          }
+
+          & > * + * {
+            #{$property}: #{$item-value};
+          }
+        }
+      }
+
+      @if $responsive {
+        @each $size, $value in $t-breakpoints {
+          @each $item-name, $item-value in $items {
+            @include breakpoint-up($size) {
+              $class-name: #{$layout-prefix}#{$prefix}#{$size}-#{$item-name};
+
+              // @error $class-name;
+              .#{$class-name} {
+                & > * + * {
+                  #{$property}: #{$item-value};
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
