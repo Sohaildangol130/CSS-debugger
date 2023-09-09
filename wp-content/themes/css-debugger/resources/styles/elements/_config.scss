@@ -1,0 +1,97 @@
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: #{$t-typography--default-font};
+  font-size: #{$base-rem-multiplier};
+  position: relative;
+}
+
+body {
+  letter-spacing: normal;
+  /* stylelint-disable */
+  font-smoothing: antialiased;
+  /* stylelint-enable */
+  &.prevent-scrolling {
+    @extend .overflow-hidden, .position-fixed, .w-100;
+
+    top: auto;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+a,
+button,
+.btn {
+  @extend .transition-fast;
+}
+
+p {
+  margin-bottom: 3.2rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+ul,
+ol {
+  padding-left: 2.2rem;
+
+  > li {
+    margin-bottom: 2.4rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+b,
+strong {
+  font-weight: $font-weight-bold;
+}
+
+figure {
+  margin-bottom: 0;
+}
+
+img {
+  @extend .mw-100;
+}
+
+button,
+.btn,
+.btn-link {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 13rem $white inset !important;
+}
+
+/* purgecss start ignore */
+div[id^='__lpform_'] {
+  display: none;
+}

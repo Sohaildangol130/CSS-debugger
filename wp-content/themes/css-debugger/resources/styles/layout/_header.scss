@@ -1,0 +1,114 @@
+.#{$global} {
+  &-header {
+    width: 100%;
+    background-color: yellow;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: transform 0.4s ease-in-out;
+    z-index: 1050 !important;
+
+    // Expandable search
+    .search {
+      font-size: 1.8rem;
+      line-height: 1.6rem;
+
+      position: relative;
+      transition: width 450ms ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 24px;
+
+      &-input {
+        border: 0;
+        padding: 0.2rem 0;
+        border-bottom: 0.1rem solid $gray-700;
+        flex-grow: 1;
+        outline: 0;
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: transparent;
+        opacity: 0;
+        cursor: pointer;
+        color: black;
+        @include media-breakpoint-up(md) {
+          padding: 0.1rem 0;
+        }
+      }
+
+      &-submit {
+        font-size: 2rem;
+        margin-left: auto;
+        background: 0;
+        border: 0;
+        cursor: pointer;
+        padding: 0;
+
+        &:hover {
+          color: red;
+        }
+
+        i {
+          font-size: 1.6rem;
+          color: black;
+
+          @include media-breakpoint-up(md) {
+            font-size: 2.4rem;
+          }
+        }
+
+        span {
+          font-size: 1.2rem;
+          line-height: 2.4rem;
+          color: black;
+        }
+      }
+
+      &:focus-within {
+        width: 18.1rem;
+        @include media-breakpoint-up(md) {
+          width: 21.8rem;
+        }
+
+        .search-input {
+          opacity: 1;
+          z-index: initial;
+          cursor: initial;
+          width: calc(100% - 2.8rem);
+          font-size: 1.2rem;
+          line-height: 2.4rem;
+          //-webkit-appearance: none;
+          border-radius: 0;
+
+          &::placeholder {
+            color: $gray-600;
+          }
+        }
+
+        .search-submit {
+          color: red;
+
+          span {
+            display: none;
+          }
+
+          i {
+            color: red;
+          }
+
+          &:focus-visible,
+          &:hover,
+          &:focus {
+            outline: 0;
+          }
+        }
+      }
+    }
+  }
+}

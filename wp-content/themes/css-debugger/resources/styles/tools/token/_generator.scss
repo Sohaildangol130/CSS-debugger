@@ -1,0 +1,57 @@
+@mixin utility-builder($utility) {
+  @each $name, $utility-data in $utility {
+    // Destructuring map
+    $prefix: map-get(
+      $map: $utility-data,
+      $key: 'prefix',
+    );
+    $items: map-get(
+      $map: $utility-data,
+      $key: 'items',
+    );
+    $property: map-get(
+      $map: $utility-data,
+      $key: 'property',
+    );
+    $responsive: map-get(
+      $map: $utility-data,
+      $key: 'responsive',
+    );
+    $root: map-get(
+      $map: $utility-data,
+      $key: 'root',
+    );
+
+    @if $property {
+      @each $item-name, $item-value in $items {
+        $class-name: #{$utility-prefix}#{$prefix}#{$item-name};
+        // @error $class-name;
+        .#{$class-name} {
+          #{$property}: #{$item-value};
+        }
+      }
+
+      @if $responsive {
+        @each $size, $value in $t-breakpoints {
+          @each $item-name, $item-value in $items {
+            @include breakpoint-up($size) {
+              $class-name: #{$utility-prefix}#{$prefix}#{$size}-#{$item-name};
+              // @error $class-name;
+              .#{$class-name} {
+                #{$property}: #{$item-value};
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @if $root {
+      :root {
+        @each $item-name, $item-value in $items {
+          --#{$prefix}#{$item-name}: #{$item-value};
+        }
+      }
+    }
+  }
+}

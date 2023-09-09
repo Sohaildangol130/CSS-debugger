@@ -1,0 +1,41 @@
+name: Deploy to Production Server
+# Controls when the action will run. Triggers the workflow on push or pull      request
+# events but only for the master branch
+on:
+  push:
+    branches:
+      - main
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  production:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - run: |
+          git fetch --prune --unshallow
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18.12.1'
+          # Switch to Build Gitignore to exclude build files
+      - run : cp .gitignoreBuild .gitignore && git config --global user.email "${{ github.actor }}@noreply.github.com" && git config --global user.name "${{ github.actor }}"
+        # ${secret.BUILD_PATH} is the path to the build directory in the repository.For Example wp-content/themes/my-theme
+        # Installing Packages and Building packages
+      - run: cd wp-content/themes/sage10 && composer install && yarn install && yarn build && git status && cd ../../../ && git add . && git commit -m "Build"
+      - name: GitHub Action for Production
+        #uses: jovrtn/github-action-wpengine-git-deploy@0.1.2
+        uses: uraayush/github-action-wpengine-git-deploy@master
+        #uses: wpengine/github-action-wpe-site-deploy@v3
+        #with:
+          #WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPENGINE_SSH_KEY_PRIVATE }}
+          #WPE_ENV: ${{secrets.WPENGINE_ENVIRONMENT_NAME_LIVE}}
+          #FLAGS: -azvr --inplace --delete --exclude=".*" --exclude=wp-content/themes/sage10/bootstrap/cache/ --exclude=wp-content/themes/sage10/storage
+        env:
+          WPENGINE_ENVIRONMENT_NAME: ${{ secrets.WPENGINE_ENVIRONMENT_NAME_LIVE }}
+          WPENGINE_SSH_KEY_PRIVATE: ${{ secrets.WPENGINE_SSH_KEY_PRIVATE }}
+          WPENGINE_SSH_KEY_PUBLIC: ${{ secrets.WPENGINE_SSH_KEY_PUBLIC }}
+          LOCAL_BRANCH: ${{ secrets.BRANCH_LIVE }}

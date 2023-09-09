@@ -1,0 +1,44 @@
+{
+  "name": "sage",
+  "private": true,
+  "browserslist": [
+    "extends @roots/browserslist-config"
+  ],
+  "engines": {
+    "node": ">=18.12.1"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "bud dev",
+    "build": "bud build",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,scss}\" --ignore-path .gitignore",
+    "lint": "yarn lint:js && yarn lint:css",
+    "lint:js": "eslint resources/scripts",
+    "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
+    "translate": "yarn translate:pot && yarn translate:update",
+    "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --include=\"app,resources\"",
+    "translate:update": "for filename in ./resources/lang/*.po; do msgmerge -U $filename ./resources/lang/sage.pot; done; rm -f ./resources/lang/*.po~",
+    "translate:compile": "yarn translate:mo && yarn translate:js",
+    "translate:js": "wp i18n make-json ./resources/lang --pretty-print",
+    "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang",
+    "prepare": "cd ../../../ && husky install ./wp-content/themes/sage10/.husky"
+  },
+  "devDependencies": {
+    "@popperjs/core": "^2.11.2",
+    "@roots/bud": "6.12.0",
+    "@roots/bud-eslint": "^6.12.0",
+    "@roots/bud-prettier": "6.12.0",
+    "@roots/bud-purgecss": "6.12.0",
+    "@roots/bud-sass": "6.12.0",
+    "@roots/bud-stylelint": "6.12.0",
+    "@roots/eslint-config": "6.12.0",
+    "@roots/sage": "6.12.0",
+    "husky": "^8.0.3",
+    "is-ci": "^3.0.1",
+    "lint-staged": "^13.1.2"
+  },
+  "dependencies": {
+    "bootstrap": "5.2.3",
+    "purgecss-with-wordpress": "^4.1.0"
+  }
+}

@@ -1,0 +1,37 @@
+@mixin system-grid-cols($grid-map: (), $breakpoints, $rootVal: false) {
+  .l-grid > * {
+    grid-column: var(--col-start, auto) / span var(--col-span, 1);
+  }
+
+  @for $span from 1 through map-get($grid-map, 'columns') {
+    .col-span-#{$span} {
+      --col-span: #{$span};
+    }
+    .col-start-#{$span} {
+      --col-start: #{$span};
+    }
+  }
+
+  @each $size, $val in $breakpoints {
+    @for $span from 1 through map-get($grid-map, 'columns') {
+      .col-span-#{$size}-#{$span} {
+        @include breakpoint-up($size) {
+          --col-span: #{$span};
+        }
+      }
+      .col-start-#{$size}-#{$span} {
+        @include breakpoint-up($size) {
+          --col-start: #{$span};
+        }
+      }
+    }
+  }
+
+  @if $rootVal {
+    :root {
+      @each $grid-map-name, $grid-map-val in $grid-map {
+        --#{$grid-map-name}: #{$grid-map-val};
+      }
+    }
+  }
+}
