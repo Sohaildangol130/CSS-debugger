@@ -1,0 +1,48 @@
+$t-theme: (
+  /* Add class to body: theme-default */ 'default':
+    (
+      'main': (
+        /*
+        Root: --main-{prop}
+      */ 'bg': var(--c-offwhite),
+        'text': var(--c-offblack),
+        'ease': cubic-bezier(0.25, 0.1, 0, 1),
+        'ease-in-out': cubic-bezier(0.77, 0, 0.175, 1),
+      ),
+      'transition': (
+        /*
+        Root: --main-{prop}
+      */ 'page-overlay-duration': 2.4s,
+        'ease': cubic-bezier(0.25, 0.1, 0, 1),
+        'ease-in-out': cubic-bezier(0.77, 0, 0.175, 1),
+      ),
+      'color': (
+        'primary': var(--c-blue-neutral),
+        'secondary': var(--c-red-neutral),
+      ),
+      'btn': (
+        'gap': var(--space-m),
+      ),
+      'btn-primary': (
+        /* Root: --btn-primary-{prop} */ 'main-clr': var(--c-brown),
+        'main-clr-hover': var(--c-brown),
+        'main-clr-focus': var(--c-brown),
+        'support-clr': var(--c-white),
+        'support-clr-hover': var(--c-white),
+        'support-clr-focus': var(--c-white),
+      ),
+      'btn-white': (
+        /* Root: --btn-primary-{prop} */ 'main-clr': var(--c-beige),
+        'main-clr-hover': var(--c-white),
+        'main-clr-focus': var(--c-white),
+        'support-clr': var(--c-white),
+        'support-clr-hover': var(--c-white),
+        'support-clr-focus': var(--c-white),
+      ),
+      'link': (
+        /* Root: --link-{prop} */ 'text-clr': var(--c-brown),
+        'text-clr-hover': var(--c-brown),
+        'text-clr-focus': var(--c-brown),
+      ),
+    )
+);

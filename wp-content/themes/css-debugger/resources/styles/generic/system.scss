@@ -1,6 +1,8 @@
 @include system-font($t-fonts);
 @include system-typo($t-typography);
-@include system-grid-cols(map-get($map: $t-layout, $key: 'grid'), $t-breakpoints);
+@include system-grid-cols(map-get($map: $t-layout, $key: 'grid'));
+@include system-flex-cols(map-get($map: $t-layout, $key: 'grid'));
 
 @include utility-builder($t-utility);
+@include theme-builder($t-theme);
 @include layout-stack($t-stack);

@@ -20,7 +20,7 @@
 
     @if $property {
       @each $item-name, $item-value in $items {
-        $class-name: #{$layout-prefix}#{$prefix}#{$item-name};
+        $class-name: #{$layout-prefix}-#{$prefix}#{$item-name};
 
         // @error $class-name;
         .#{$class-name} {
@@ -38,7 +38,7 @@
         @each $size, $value in $t-breakpoints {
           @each $item-name, $item-value in $items {
             @include breakpoint-up($size) {
-              $class-name: #{$layout-prefix}#{$prefix}#{$size}-#{$item-name};
+              $class-name: #{$layout-prefix}-#{$prefix}#{$size}-#{$item-name};
 
               // @error $class-name;
               .#{$class-name} {

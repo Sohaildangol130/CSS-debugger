@@ -8,10 +8,9 @@
   }
 
   &-main {
-    background-color: $white;
     overflow-x: hidden;
 
-    @include media-breakpoint-down(md) {
+    @include breakpoint-down(md) {
       min-height: auto;
       height: 100%;
     }

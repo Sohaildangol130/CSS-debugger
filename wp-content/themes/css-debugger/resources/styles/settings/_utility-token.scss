@@ -1,0 +1,600 @@
+/* Utility classes */
+$t-utility: (
+  /* 
+    -------------------
+    ROOT UTILITIES:-
+    -------------------
+  */ /* Breakpoints */ 'Breakpoints':
+    (
+      'prefix': 'br-',
+      'items': $t-breakpoints,
+      'root': true,
+    ),
+  /* Breakpoints */ 'Typography Size':
+    (
+      'prefix': 'typo-size-',
+      'items': $t-typography-size,
+      'root': true,
+    ),
+
+  /* Colors */ 'Colors':
+    (
+      'prefix': 'c-',
+      'items': $t-colors,
+      'root': true,
+    ),
+
+  /* Scales */ 'scale':
+    (
+      'prefix': 'scale-',
+      'items': $t-scale,
+      'root': true,
+      'rem': true,
+    ),
+  /* Space */ 'Space':
+    (
+      'prefix': 'space-',
+      'items': $t-spacing,
+      'root': true,
+    ),
+
+  /* 
+    -------------------
+    PROPERTY UTILITIES:-
+    Make "'root': true" if root variables are required
+    Make "'responsive': true" if breakpoints are required
+    -------------------
+  */
+    /* Border radius */ 'Border radius':
+    (
+      'prefix': 'radius-',
+      'items': (
+        '1': 4px,
+        '2': 8px,
+        '3': 12px,
+        '4': 16px,
+        '5': 20px,
+        '6': 24px,
+        '7': 28px,
+      ),
+      'property': 'border-radius',
+      'responsive': true,
+      'root': true,
+      'rem': true,
+    ),
+
+  /* Bg colors */ 'Background color':
+    (
+      'prefix': 'bg-',
+      'items': $t-colors,
+      'property': 'background',
+      'root': false,
+    ),
+
+  /* Text colors */ 'Text color':
+    (
+      'prefix': 'text-',
+      'items': $t-colors,
+      'property': 'color',
+      'root': false,
+    ),
+
+  /* Text align */ 'Text align':
+    (
+      'prefix': 'text-align-',
+      'items': (
+        'start': 'start',
+        'center': 'center',
+        'end': 'end',
+      ),
+      'property': 'text-align',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Text decoration */ 'Text decoration':
+    (
+      'prefix': 'text-decoration-',
+      'items': (
+        'underline': 'underline',
+        'line-through': 'line-through',
+        'none': 'none',
+      ),
+      'property': 'text-decoration',
+    ),
+  /* Vertical align */ 'Vertical align':
+    (
+      'prefix': 'vertical-align-',
+      'items': (
+        'baseline': 'baseline',
+        'top': 'top',
+        'middle': 'middle',
+        'bottom': 'bottom',
+        'sub': 'sub',
+        'text-top': 'text-top',
+      ),
+      'property': 'vertical-align',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* White space */ 'White space':
+    (
+      'prefix': 'white-space-',
+      'items': (
+        'normal': 'normal',
+        'nowrap': 'nowrap',
+        'pre': 'pre',
+        'pre-wrap': 'pre-wrap',
+        'pre-line': 'pre-line',
+        'break-spaces': 'break-spaces',
+      ),
+      'property': 'white-space',
+      'responsive': false,
+      'root': false,
+    ),
+
+  /* Word wrap */ 'Word wrap':
+    (
+      'prefix': 'word-wrap-',
+      'items': (
+        'normal': 'normal',
+        'break': 'break-word',
+      ),
+      'property': 'word-wrap',
+      'responsive': false,
+      'root': false,
+    ),
+
+  /* Position */ 'Position':
+    (
+      'prefix': 'position-',
+      'items': (
+        'static': 'static',
+        'relative': 'relative',
+        'absolute': 'absolute',
+        'fixed': 'fixed',
+        'sticky': 'sticky',
+      ),
+      'property': 'position',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Display */ 'Display':
+    (
+      'prefix': 'd-',
+      'items': (
+        'none': 'none',
+        'block': 'block',
+        'inline': 'inline',
+        'inline-block': 'inline-block',
+        'inline-flex': 'inline-flex',
+        'flex': 'flex',
+        'grid': 'grid',
+      ),
+      'property': 'display',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Justify content */ 'Flex justify':
+    (
+      'prefix': 'justify-',
+      'items': (
+        'start': 'flex-start',
+        'end': 'flex-end',
+        'center': 'center',
+        'between': 'space-between',
+        'around': 'space-around',
+      ),
+      'property': 'justify-content',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Justify content self */ 'Flex justify self':
+    (
+      'prefix': 'justify-self-',
+      'items': (
+        'start': 'flex-start',
+        'end': 'flex-end',
+        'center': 'center',
+        'baseline': 'baseline',
+        'stretch': 'stretch',
+      ),
+      'property': 'justify-self',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Align items */ 'Flex align':
+    (
+      'prefix': 'align-',
+      'items': (
+        'start': 'flex-start',
+        'end': 'flex-end',
+        'center': 'center',
+        'between': 'space-between',
+        'around': 'space-around',
+        'stretch': 'stretch',
+      ),
+      'property': 'align-items',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Align items */ 'Flex align self':
+    (
+      'prefix': 'align-self-',
+      'items': (
+        'start': 'flex-start',
+        'end': 'flex-end',
+        'center': 'center',
+        'baseline': 'baseline',
+        'stretch': 'stretch',
+      ),
+      'property': 'align-self',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Flex direction */ 'Flex direction':
+    (
+      'prefix': 'flex-',
+      'items': (
+        'column': 'column',
+        'column-reverse': 'column-reverse',
+        'row': 'row',
+        'row-reverse': 'row-reverse',
+      ),
+      'property': 'flex-direction',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Flex wrap */ 'Flex wrap':
+    (
+      'prefix': 'flex-',
+      'items': (
+        'wrap': 'wrap',
+        'nowrap': 'nowrap',
+      ),
+      'property': 'flex-wrap',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Flex grow */ 'Flex grow':
+    (
+      'prefix': 'flex-grow-',
+      'items': (
+        '0': '0',
+        '1': '1',
+      ),
+      'property': 'flex-grow',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Flex shrink */ 'Flex shrink':
+    (
+      'prefix': 'flex-shrink-',
+      'items': (
+        '0': '0',
+        '1': '1',
+      ),
+      'property': 'flex-shrink',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Order */ 'Order':
+    (
+      'prefix': 'order-',
+      'items': (
+        '0': '0',
+        '1': '1',
+        '2': '2',
+        '3': '3',
+        '4': '4',
+        '5': '5',
+      ),
+      'property': 'order',
+      'responsive': false,
+      'root': false,
+    ),
+
+  /* Opacity */ 'Opacity':
+    (
+      'prefix': 'op-',
+      'items': $t-opacity,
+      'property': 'opacity',
+      'responsive': false,
+      'root': false,
+    ),
+
+  /* Float */ 'Float':
+    (
+      'prefix': 'float-',
+      'items': (
+        'none': 'none',
+        'left': 'left',
+        'right': 'right',
+      ),
+      'property': 'float',
+      'responsive': true,
+      'root': false,
+    ),
+
+  /* Aspect ratio */ 'Aspect ratio':
+    (
+      'prefix': 'ratio-',
+      'items': $t-ratio,
+      'property': 'aspect-ratio',
+      'responsive': false,
+      'root': true,
+    ),
+
+  /* Object fit */ 'Object fit':
+    (
+      'prefix': 'fit-',
+      'items': (
+        'cover': 'cover',
+        'contain': 'contain',
+        'fill': 'fill',
+        'scale-down': 'scale-down',
+      ),
+      'property': 'object-fit',
+      'responsive': false,
+      'root': false,
+    ),
+
+  /* User select */ 'User select':
+    (
+      'prefix': 'select-',
+      'items': (
+        'auto': 'auto',
+        'all': 'all',
+        'none': 'none',
+      ),
+      'property': 'user-select',
+      'responsive': false,
+      'root': false,
+    ),
+
+  /* Pointer events */ 'Pointer-events':
+    (
+      'prefix': 'pointer-',
+      'items': (
+        'none': 'none',
+        'auto': 'auto',
+      ),
+      'property': 'pointer-events',
+      'responsive': false,
+      'root': false,
+    ),
+
+  /* Overflow */ 'Overflow all':
+    (
+      'prefix': 'overflow-',
+      'items': (
+        'auto': 'auto',
+        'hidden': 'hidden',
+        'scroll': 'scroll',
+        'visible': 'visible',
+      ),
+      'property': 'overflow',
+      'responsive': false,
+      'root': false,
+    ),
+  'Overflow x': (
+    'prefix': 'overflow-x-',
+    'items': (
+      'auto': 'auto',
+      'hidden': 'hidden',
+      'scroll': 'scroll',
+      'visible': 'visible',
+    ),
+    'property': 'overflow-x',
+    'responsive': false,
+    'root': false,
+  ),
+  'Overflow y': (
+    'prefix': 'overflow-y-',
+    'items': (
+      'auto': 'auto',
+      'hidden': 'hidden',
+      'scroll': 'scroll',
+      'visible': 'visible',
+    ),
+    'property': 'overflow-y',
+    'responsive': false,
+    'root': false,
+  ),
+
+  /* Z-index */ 'Z-index':
+    (
+      'prefix': 'z-',
+      'items': (
+        'n10': '-10',
+        '0': '0',
+        '10': '10',
+        '20': '20',
+        '30': '30',
+        '40': '40',
+        '50': '50',
+        '60': '60',
+        '70': '70',
+        '80': '80',
+        '90': '90',
+        '100': '100',
+      ),
+      'property': 'z-index',
+      'responsive': false,
+      'root': true,
+    ),
+
+  /* Width */ 'Width':
+    (
+      'prefix': 'w-',
+      'items': (
+        '0': '0',
+        '10': '10%',
+        '15': '15%',
+        '20': '20%',
+        '25': '25%',
+        '50': '50%',
+        '75': '75%',
+        '100': '100%',
+        '100vw': '100vw',
+      ),
+      'property': 'width',
+      'responsive': false,
+      'root': false,
+    ),
+
+  /* Height */ 'Height':
+    (
+      'prefix': 'h-',
+      'items': (
+        '0': '0',
+        '10': '10%',
+        '15': '15%',
+        '20': '20%',
+        '25': '25%',
+        '50': '50%',
+        '75': '75%',
+        '100': '100%',
+        '100vh': '100vh',
+      ),
+      'property': 'height',
+      'responsive': false,
+      'root': false,
+    ),
+
+  /* Paddings */ 'Padding all':
+    (
+      'prefix': 'p-',
+      'items': $t-spacing,
+      'property': 'padding',
+      'responsive': true,
+      'root': false,
+    ),
+  'Padding x': (
+    'prefix': 'px-',
+    'items': $t-spacing,
+    'property': 'padding-inline',
+    'responsive': true,
+    'root': false,
+  ),
+  'Padding y': (
+    'prefix': 'py-',
+    'items': $t-spacing,
+    'property': 'padding-block',
+    'responsive': true,
+    'root': false,
+  ),
+  'Padding Top': (
+    'prefix': 'pt-',
+    'items': $t-spacing,
+    'property': 'padding-block-start',
+    'responsive': true,
+    'root': false,
+  ),
+  'Padding Bottom': (
+    'prefix': 'pb-',
+    'items': $t-spacing,
+    'property': 'padding-block-end',
+    'responsive': true,
+    'root': false,
+  ),
+  'Padding Left': (
+    'prefix': 'ps-',
+    'items': $t-spacing,
+    'property': 'padding-inline-start',
+    'responsive': true,
+    'root': false,
+  ),
+  'Padding Right': (
+    'prefix': 'pe-',
+    'items': $t-spacing,
+    'property': 'padding-inline-end',
+    'responsive': true,
+    'root': false,
+  ),
+
+  /* Margins */ 'Margin all':
+    (
+      'prefix': 'm-',
+      'items': $t-spacing,
+      'property': 'margin',
+      'responsive': true,
+      'root': false,
+    ),
+  'Margin x': (
+    'prefix': 'mx-',
+    'items': $t-spacing,
+    'property': 'margin-inline',
+    'responsive': true,
+    'root': false,
+  ),
+  'Margin y': (
+    'prefix': 'my-',
+    'items': $t-spacing,
+    'property': 'margin-block',
+    'responsive': true,
+    'root': false,
+  ),
+  'Margin Top': (
+    'prefix': 'mt-',
+    'items': $t-spacing,
+    'property': 'margin-block-start',
+    'responsive': true,
+    'root': false,
+  ),
+  'Margin Bottom': (
+    'prefix': 'mb-',
+    'items': $t-spacing,
+    'property': 'margin-block-end',
+    'responsive': true,
+    'root': false,
+  ),
+  'Margin Left': (
+    'prefix': 'ms-',
+    'items': $t-spacing,
+    'property': 'margin-inline-start',
+    'responsive': true,
+    'root': false,
+  ),
+  'Margin Right': (
+    'prefix': 'me-',
+    'items': $t-spacing,
+    'property': 'margin-inline-end',
+    'responsive': true,
+    'root': false,
+  ),
+
+  /* Gaps */ 'Gap all':
+    (
+      'prefix': 'g-',
+      'items': $t-spacing,
+      'property': 'gap',
+      'responsive': true,
+      'root': false,
+    ),
+  'Gap x': (
+    'prefix': 'gx-',
+    'items': $t-spacing,
+    'property': 'column-gap',
+    'responsive': true,
+    'root': false,
+  ),
+  'Gap y': (
+    'prefix': 'gy-',
+    'items': $t-spacing,
+    'property': 'row-gap',
+    'responsive': true,
+    'root': false,
+  )
+);

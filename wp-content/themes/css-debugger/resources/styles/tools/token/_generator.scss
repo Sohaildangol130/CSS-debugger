@@ -21,13 +21,34 @@
       $map: $utility-data,
       $key: 'root',
     );
+    $rem: map-get(
+      $map: $utility-data,
+      $key: 'rem',
+    );
+
+    @if $rem {
+      $rem-item-list: ();
+      @each $item-name, $item-value in $items {
+        $dummy: (
+          $item-name: #{rem($item-value)},
+        );
+        $rem-item-list: map-merge(
+          $map1: $rem-item-list,
+          $map2: $dummy,
+        );
+      }
+      $items: ();
+      $items: map-merge(
+        $map1: $items,
+        $map2: $rem-item-list,
+      );
+    }
 
     @if $property {
       @each $item-name, $item-value in $items {
-        $class-name: #{$utility-prefix}#{$prefix}#{$item-name};
-        // @error $class-name;
+        $class-name: #{$utility-prefix}-#{$prefix}#{$item-name};
         .#{$class-name} {
-          #{$property}: #{$item-value};
+          #{$property}: #{$item-value} !important;
         }
       }
 
@@ -35,10 +56,10 @@
         @each $size, $value in $t-breakpoints {
           @each $item-name, $item-value in $items {
             @include breakpoint-up($size) {
-              $class-name: #{$utility-prefix}#{$prefix}#{$size}-#{$item-name};
+              $class-name: #{$utility-prefix}-#{$prefix}#{$size}-#{$item-name};
               // @error $class-name;
               .#{$class-name} {
-                #{$property}: #{$item-value};
+                #{$property}: #{$item-value} !important;
               }
             }
           }
@@ -50,6 +71,18 @@
       :root {
         @each $item-name, $item-value in $items {
           --#{$prefix}#{$item-name}: #{$item-value};
+        }
+      }
+    }
+  }
+}
+
+@mixin theme-builder($theme) {
+  @each $type, $theme-map in $theme {
+    .theme-#{$type} {
+      @each $name, $style-map in $theme-map {
+        @each $prop, $val in $style-map {
+          --#{$name}-#{$prop}: #{$val};
         }
       }
     }

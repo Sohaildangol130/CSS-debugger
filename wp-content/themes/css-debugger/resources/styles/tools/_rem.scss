@@ -2,7 +2,7 @@
 // font-size: rem(15px);
 // font-size: rem(110px !important);
 
-$rem-baseline: 16px !default;
+$rem-baseline: $base-rem-multiplier !default;
 $rem-fallback: false !default;
 $rem-px-only: false !default;
 
@@ -31,7 +31,7 @@ $rem-px-only: false !default;
     @if type-of($value) == 'number' and unit($value) == 'rem' and $to== 'px' {
       $result: append($result, $value / 1rem * $rem-baseline, $separator);
     } @else if type-of($value) == 'number' and unit($value) == 'px' and $to== 'rem' {
-      $result: append($result, $value / $rem-baseline * 1rem, $separator);
+      $result: append($result, calc($value / $rem-baseline) * 1rem, $separator);
     } @else if type-of($value) == 'list' {
       $value-separator: rem-separator($value);
       $value: rem-convert($to, $value...);

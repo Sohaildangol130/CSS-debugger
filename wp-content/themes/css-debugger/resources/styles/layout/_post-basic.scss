@@ -15,11 +15,11 @@
       & + * {
         margin-top: 1.6rem;
 
-        @include media-breakpoint-up(md) {
+        @include breakpoint-up(md) {
           margin-top: 2.4rem;
         }
 
-        @include media-breakpoint-up(xl) {
+        @include breakpoint-up(xl) {
           margin-top: 4rem;
         }
       }
@@ -29,11 +29,11 @@
   p {
     margin-top: 1.6rem;
 
-    @include media-breakpoint-up(md) {
+    @include breakpoint-up(md) {
       margin-top: 2.4rem;
     }
 
-    @include media-breakpoint-up(xl) {
+    @include breakpoint-up(xl) {
       margin-top: 4rem;
     }
   }
@@ -47,11 +47,11 @@
       margin-top: 1.6rem;
       padding-left: 1rem;
 
-      @include media-breakpoint-up(md) {
+      @include breakpoint-up(md) {
         margin-top: 1.2rem;
       }
 
-      @include media-breakpoint-up(xl) {
+      @include breakpoint-up(xl) {
         margin-top: 0.8rem;
       }
 

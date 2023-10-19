@@ -2,60 +2,85 @@ $base-rem-multiplier: 16px;
 
 /* Colors */
 $t-colors: (
+  'dark-brown': #7c4732,
+  'brown': #9f5f45,
+  'bronze': #c57a5c,
+  'pink': #ffdbcc,
+  'dusty-pink': #f8eae4,
+  'offblack': #262424,
+  // 'offblack': #252525,
   'black': #000,
+  // 'mid-beige-dark': #7a7672,
+  'mid-beige': #7a7672,
+  'beige': #c7c2bb,
+  'offwhite': #ede9e5,
+  'offwhite-light': #f6f4f2,
+  // 'offwhite': #f9f7f4,
   'white': #fff,
-  'red': red,
-  'blue': blue,
+);
+
+$t-spacing: (
+  '0': 0,
+  '3xs': clamp(0.25rem, calc(0.23rem + 0.09vw), 0.38rem),
+  '2xs': clamp(0.5rem, calc(0.46rem + 0.19vw), 0.75rem),
+  'xs': clamp(0.75rem, calc(0.69rem + 0.28vw), 1.13rem),
+  's': clamp(1rem, calc(0.93rem + 0.38vw), 1.5rem),
+  'm': clamp(1.5rem, calc(1.39rem + 0.56vw), 2.25rem),
+  'l': clamp(2rem, calc(1.85rem + 0.75vw), 3rem),
+  'xl': clamp(3rem, calc(2.78rem + 1.13vw), 4.5rem),
+  '2xl': clamp(4rem, calc(3.7rem + 1.5vw), 6rem),
+  // Changed 3xl value to 2xl-3xl. Original value: clamp(6.00rem, calc(5.56rem + 2.25vw), 9.00rem);
+  '3xl': clamp(4rem, calc(3.26rem + 3.75vw), 9rem),
+  /* Custom pairs */ '2xl-3xl': clamp(4rem, calc(3.26rem + 3.75vw), 9rem),
+  's-3xl': clamp(1rem, calc(-0.19rem + 6vw), 9rem),
 );
 
 /* Typo sizes */
 $t-typography-size: (
-  'h1-lg': 100px,
-  'h1': 40px,
+  'step-n2': clamp(0.69rem, calc(0.67rem + 0.11vw), 0.84rem),
+  'step-n1': clamp(0.83rem, calc(0.79rem + 0.22vw), 1.13rem),
+  'step-0': clamp(1rem, calc(0.93rem + 0.38vw), 1.5rem),
+  'step-1': clamp(1.2rem, calc(1.08rem + 0.6vw), 2rem),
+  'step-2': clamp(1.44rem, calc(1.26rem + 0.92vw), 2.67rem),
+  'step-3': clamp(1.73rem, calc(1.46rem + 1.37vw), 3.55rem),
+  'step-4': clamp(2.07rem, calc(1.68rem + 2vw), 4.74rem),
+  'step-5': clamp(2.49rem, calc(1.92rem + 2.87vw), 6.31rem),
+  'step-6': clamp(2.99rem, calc(2.18rem + 4.07vw), 8.42rem),
+  'step-7': clamp(3.58rem, calc(2.45rem + 5.73vw), 11.22rem),
 ) !default;
 
-/* Typo leadings */
-$t-typography-leading: (
-  'none': 1,
-  'tight': 1.35,
-  'normal': 1.5,
-  'loose': 1.7,
+/* Typo line height */
+$t-typography-line-height: (
+  'normal': 1,
+  'loose': 1.2,
 ) !default;
 
 /* Typo trackings */
-$t-typography-tracking: (
-  'tight': -0.01em,
-  'normal': 0,
-  'wide': 0.01em,
-  'extra-wide': 0.075em,
-) !default;
+// $t-typography-tracking: (
+//   'tight': -0.01em,
+//   'normal': 0,
+//   'wide': 0.01em,
+//   'extra-wide': 0.075em,
+// ) !default;
 
 /* Typo weight */
 $t-typography-weight: (
   'light': 300,
   'normal': 400,
-  'medium': 600,
-  'bold': 700,
 ) !default;
 
 /* Font face */
 $t-fonts: (
   '1': (
     // style-name: value
-    'font-family': 'FT base',
-    'src': url('../../fonts/FTBase-Book.woff2') format('woff2'),
+    'font-family': 'OS display',
+    'src': url('../../fonts/OS-display-trial.woff2') format('woff2'),
     'font-weight': 300,
-  ),
-  '2': (
-    // style-name: value
-    'font-family': 'FT base',
-    'src': url('../../fonts/FTBase-Regular.woff2') format('woff2'),
-    'font-weight': 400,
   ),
 );
 
 /* Default fonts */
-$t-typography--sans: 'FT base, Helvetica Neue, Helvetica, Arial, sans-serif' !default;
+$t-typography--sans: 'OS display, Helvetica Neue, Helvetica, Arial, sans-serif' !default;
 $t-typography--serif: 'serif' !default;
 $t-typography--default-font: #{$t-typography--sans};
 
@@ -67,11 +92,11 @@ $t-opacity: (
   '100': 1,
 );
 
-/* Spacing multiplier */
-$multiplier: 0.4rem;
+/* Scale multiplier */
+$multiplier: 4px;
 
-/* Spacings */
-$t-spacing: (
+/* Scales */
+$t-scale: (
   '0': 0,
   '1': $multiplier * 1,
   '2': $multiplier * 2,
@@ -82,38 +107,47 @@ $t-spacing: (
 
 /* Ratios */
 $t-ratio: (
-  '1x1': 1 / 1,
-  '3x4': 3 / 4,
-  '16x9': 16 / 9,
+  '1x1': calc(1 / 1),
+  '2x1': calc(2 / 1),
+  '3x1': calc(3 / 1),
+  '3x2': calc(3 / 2),
+  '3x4': calc(3 / 4),
+  '4x3': calc(4 / 3),
+  '16x9': calc(16 / 9),
+  '21x9': calc(21 / 9),
 );
 
 /* Breakpoints */
 $t-breakpoints: (
   'xs': 0,
-  'sm': 481px,
+  'sm': 375px,
   'md': 768px,
   'lg': 1024px,
-  'xl': 1280px,
-  'xxl': 1440px,
+  'xl': 1440px,
 );
 
 /* Grid */
 $t-layout: (
   'container': (
     'max-width': (
-      // 'xs': 400px,
-      'lg': 1440px,
+      'xs': 2440px,
     ),
     'margin': (
-      'xs': 20px,
-      'lg': 64px,
+      'xs':
+        map-get(
+          $map: $t-spacing,
+          $key: 's-3xl',
+        ),
     ),
   ),
   'grid': (
     'columns': 12,
     'gutter': (
-      'xs': 20px,
-      'lg': 32px,
+      'xs':
+        map-get(
+          $map: $t-spacing,
+          $key: 's-3xl',
+        ),
     ),
   ),
 );
@@ -123,347 +157,66 @@ $t-layout: (
 /* Typo styles */
 $t-typography: (
   'xs': (
+    'step-7': (
+      'font-size': map-get($t-typography-size, step-7),
+      'line-height': map-get($t-typography-line-height, normal),
+      'letter-spacing': -0.0819rem,
+      'font-weight': map-get($t-typography-weight, light),
+    ),
+    'h0': (
+      'font-size': map-get($t-typography-size, step-6),
+      'line-height': map-get($t-typography-line-height, normal),
+      'letter-spacing': -0.0625rem,
+      'font-weight': map-get($t-typography-weight, light),
+    ),
     'h1': (
-      'font-size':
-        map-get(
-          $map: $t-typography-size,
-          $key: h1,
-        ),
-      'line-height': 40px,
+      'font-size': map-get($t-typography-size, step-5),
+      'line-height': map-get($t-typography-line-height, normal),
+      'letter-spacing': -0.0481rem,
+      'font-weight': map-get($t-typography-weight, light),
+    ),
+    'h2': (
+      'font-size': map-get($t-typography-size, step-4),
+      'line-height': map-get($t-typography-line-height, normal),
+      'letter-spacing': -0.0369rem,
+      'font-weight': map-get($t-typography-weight, light),
+    ),
+    'h3': (
+      'font-size': map-get($t-typography-size, step-3),
+      'line-height': map-get($t-typography-line-height, normal),
+      'letter-spacing': -0.0281rem,
+      'font-weight': map-get($t-typography-weight, light),
+    ),
+    'h4': (
+      'font-size': map-get($t-typography-size, step-2),
+      'line-height': map-get($t-typography-line-height, normal),
+      'letter-spacing': -0.0219rem,
+      'font-weight': map-get($t-typography-weight, light),
+    ),
+    'h5': (
+      'font-size': map-get($t-typography-size, step-1),
+      'line-height': map-get($t-typography-line-height, normal),
+      'font-weight': map-get($t-typography-weight, light),
+    ),
+    'p1': (
+      'font-size': map-get($t-typography-size, step-0),
+      'line-height': map-get($t-typography-line-height, loose),
+      'letter-spacing': 0.0131rem,
+      'font-weight': map-get($t-typography-weight, light),
+    ),
+    'p2': (
+      'font-size': map-get($t-typography-size, step-n1),
+      'line-height': map-get($t-typography-line-height, loose),
+      'letter-spacing': 0.01rem,
+      'font-weight': map-get($t-typography-weight, light),
+    ),
+    'p3': (
+      'font-size': map-get($t-typography-size, step-n2),
+      'line-height': map-get($t-typography-line-height, loose),
+      'letter-spacing': 0.0081rem,
+      'font-weight': map-get($t-typography-weight, light),
     ),
   ),
-  'lg': (
-    'h1': (
-      'font-size':
-        map-get(
-          $map: $t-typography-size,
-          $key: h1-lg,
-        ),
-      'line-height': 90px,
-    ),
-  ),
-);
-
-/* Utility classes */
-$t-utility: (
-  /* 
-    -------------------
-    ROOT UTILITIES:-
-    -------------------
-  */ /* Breakpoints */ 'Breakpoints':
-    (
-      'prefix': 'br-',
-      'items': $t-breakpoints,
-      'root': true,
-    ),
-
-  /* Colors */ 'Colors':
-    (
-      'prefix': 'c-',
-      'items': $t-colors,
-      'root': true,
-    ),
-
-  /* Spacings */ 'Spacing':
-    (
-      'prefix': 'spacing-',
-      'items': $t-spacing,
-      'root': true,
-    ),
-
-  /* Ratio */ 'Ratio':
-    (
-      'prefix': 'ratio-',
-      'items': $t-ratio,
-      'root': true,
-    ),
-
-  /* 
-    -------------------
-    PROPERTY UTILITIES:-
-    Make "'root': true" if root variables are required
-    Make "'responsive': true" if breakpoints are required
-    -------------------
-  */
-    /* Bg colors */ 'Background color':
-    (
-      'prefix': 'bg-',
-      'items': $t-colors,
-      'property': 'background',
-      'root': false,
-    ),
-
-  /* Text colors */ 'Text color':
-    (
-      'prefix': 'text-',
-      'items': $t-colors,
-      'property': 'color',
-      'root': false,
-    ),
-
-  /* Text align */ 'Text align':
-    (
-      'prefix': 'text-align-',
-      'items': (
-        'start': 'start',
-        'center': 'center',
-        'end': 'end',
-      ),
-      'property': 'text-align',
-      'responsive': true,
-      'root': false,
-    ),
-
-  /* Position */ 'Position':
-    (
-      'prefix': 'position-',
-      'items': (
-        'static': 'static',
-        'relative': 'relative',
-        'absolute': 'absolute',
-        'fixed': 'fixed',
-        'sticky': 'sticky',
-      ),
-      'property': 'position',
-      'responsive': true,
-      'root': false,
-    ),
-
-  /* Display */ 'Display':
-    (
-      'prefix': 'd-',
-      'items': (
-        'block': 'block',
-        'inline': 'inline',
-        'inline-flex': 'inline-flex',
-        'flex': 'flex',
-      ),
-      'property': 'display',
-      'responsive': true,
-      'root': false,
-    ),
-
-  /* Justify content */ 'Flex justify':
-    (
-      'prefix': 'justify-',
-      'items': (
-        'start': 'flex-start',
-        'end': 'flex-end',
-        'center': 'center',
-        'between': 'space-between',
-      ),
-      'property': 'justify-content',
-      'responsive': true,
-      'root': false,
-    ),
-
-  /* Align items */ 'Flex align':
-    (
-      'prefix': 'align-',
-      'items': (
-        'start': 'flex-start',
-        'end': 'flex-end',
-        'center': 'center',
-        'between': 'space-between',
-      ),
-      'property': 'align-items',
-      'responsive': true,
-      'root': false,
-    ),
-
-  /* Opacity */ 'Opacity':
-    (
-      'prefix': 'op-',
-      'items': $t-opacity,
-      'property': 'opacity',
-      'responsive': true,
-      'root': true,
-    ),
-
-  /* Aspect ratio */ 'Aspect ratio':
-    (
-      'prefix': 'ratio-',
-      'items': $t-ratio,
-      'property': 'aspect-ratio',
-    ),
-
-  /* Object fit */ 'Object fit':
-    (
-      'prefix': 'fit-',
-      'items': (
-        'cover': 'cover',
-        'contain': 'contain',
-      ),
-      'property': 'object-fit',
-    ),
-
-  /* Overflow */ 'Overflow all':
-    (
-      'prefix': 'overflow-',
-      'items': (
-        'auto': 'auto',
-        'hidden': 'hidden',
-        'scroll': 'scroll',
-      ),
-      'property': 'overflow',
-    ),
-  'Overflow x': (
-    'prefix': 'overflow-x-',
-    'items': (
-      'auto': 'auto',
-      'hidden': 'hidden',
-      'scroll': 'scroll',
-    ),
-    'property': 'overflow-x',
-  ),
-  'Overflow y': (
-    'prefix': 'overflow-y-',
-    'items': (
-      'auto': 'auto',
-      'hidden': 'hidden',
-      'scroll': 'scroll',
-    ),
-    'property': 'overflow-y',
-  ),
-
-  /* Z-index */ 'Z-index':
-    (
-      'prefix': 'z-',
-      'items': (
-        'n9999': '-9999',
-        'n999': '-999',
-        'n99': '-99',
-        'n9': '-9',
-        '0': '0',
-        '9': '9',
-        '99': '99',
-        '999': '999',
-        '9999': '9999',
-      ),
-      'property': 'z-index',
-    ),
-
-  /* Width */ 'Width':
-    (
-      'prefix': 'w-',
-      'items': (
-        '0': '0',
-        '25': '25%',
-        '50': '50%',
-        '75': '75%',
-        '100': '100%',
-        '100vw': '100vw',
-      ),
-      'property': 'width',
-    ),
-
-  /* Paddings */ 'Padding all':
-    (
-      'prefix': 'p-',
-      'items': $t-spacing,
-      'property': 'padding',
-      'responsive': true,
-    ),
-  'Padding x': (
-    'prefix': 'px-',
-    'items': $t-spacing,
-    'property': 'padding-inline',
-    'responsive': true,
-  ),
-  'Padding y': (
-    'prefix': 'py-',
-    'items': $t-spacing,
-    'property': 'padding-block',
-    'responsive': true,
-  ),
-  'Padding Top': (
-    'prefix': 'pt-',
-    'items': $t-spacing,
-    'property': 'padding-block-start',
-    'responsive': true,
-  ),
-  'Padding Bottom': (
-    'prefix': 'pb-',
-    'items': $t-spacing,
-    'property': 'padding-block-end',
-    'responsive': true,
-  ),
-  'Padding Left': (
-    'prefix': 'ps-',
-    'items': $t-spacing,
-    'property': 'padding-inline-start',
-    'responsive': true,
-  ),
-  'Padding Right': (
-    'prefix': 'pe-',
-    'items': $t-spacing,
-    'property': 'padding-inline-end',
-    'responsive': true,
-  ),
-
-  /* Margins */ 'Margin all':
-    (
-      'prefix': 'm-',
-      'items': $t-spacing,
-      'property': 'margin',
-      'responsive': true,
-    ),
-  'Margin x': (
-    'prefix': 'mx-',
-    'items': $t-spacing,
-    'property': 'margin-inline',
-    'responsive': true,
-  ),
-  'Margin y': (
-    'prefix': 'my-',
-    'items': $t-spacing,
-    'property': 'margin-block',
-    'responsive': true,
-  ),
-  'Margin Top': (
-    'prefix': 'mt-',
-    'items': $t-spacing,
-    'property': 'margin-block-start',
-    'responsive': true,
-  ),
-  'Margin Bottom': (
-    'prefix': 'mb-',
-    'items': $t-spacing,
-    'property': 'margin-block-end',
-    'responsive': true,
-  ),
-  'Margin Left': (
-    'prefix': 'ms-',
-    'items': $t-spacing,
-    'property': 'margin-inline-start',
-    'responsive': true,
-  ),
-  'Margin Right': (
-    'prefix': 'me-',
-    'items': $t-spacing,
-    'property': 'margin-inline-end',
-    'responsive': true,
-  ),
-
-  /* Gaps */ 'Gap all':
-    (
-      'prefix': 'g-',
-      'items': $t-spacing,
-      'property': 'gap',
-      'responsive': true,
-    ),
-  'Gap x': (
-    'prefix': 'gx-',
-    'items': $t-spacing,
-    'property': 'column-gap',
-    'responsive': true,
-  ),
-  'Gap y': (
-    'prefix': 'gy-',
-    'items': $t-spacing,
-    'property': 'row-gap',
-    'responsive': true,
-  )
 );
 
 // LAYOUT BUILDER

@@ -7,7 +7,7 @@
         }
         @include breakpoint-up($size) {
           @each $property, $val in $style-map {
-            --#{$property}: #{$val};
+            --#{$property}: #{rem($val)};
           }
         }
       }
